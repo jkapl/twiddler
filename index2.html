@@ -11,29 +11,22 @@
 
       $(document).ready(function(){
         var $tweetList = $('#tweetList');
-        // var index = streams.home.length - 1;
-        // while(index >= 0){
-        //   var tweet = streams.home[index];
-        //   var $tweet = $('<div></div>');
-        //   $tweet.text('@' + tweet.user + ': ' + tweet.message + tweet.created_at + moment(tweet.created_at).fromNow());
-        //   $tweet.appendTo($body);
-        //   index -= 1;
-        // }
+
         function getNewTweets() {
           var index = streams.home.length - 1;
           var tweet = streams.home[index];
-          //var $tweet = $('<li></li>');
-          //$tweet.html('@' + tweet.user + ': ' + tweet.message + ' ' + moment(tweet.created_at).fromNow())
-          //$tweet.text('@' + tweet.user + ': ' + tweet.message + ' ' + moment(tweet.created_at).fromNow());
-          //$tweet.appendTo($tweetList);
-          $('<li><span id=' + tweet.user + '>' + '<strong>' + tweet.user + '</strong>' + '</span>' + ': ' + tweet.message + ' | ' + moment(tweet.created_at).fromNow() + '</li>').appendTo($tweetList);
 
-          if ($('#tweetList li').length > 10) { $('#tweetList li')[0].remove() }
+          $('<li><span id=' + tweet.user + '>' + '<strong>' + tweet.user + '</strong>' + '</span>' + ': ' + tweet.message + ' | ' + '<span id=createdDate>' + moment(tweet.created_at).fromNow() + '</span>' + '</li>').appendTo($tweetList);
+
+          if ($('#tweetList li').length > 20) { $('#tweetList li')[0].remove() }
         }
 
         var tweetInterval = setInterval(getNewTweets, 2000);
+        // var timeInterval = setInterval(updateTimes, 30000);
 
-        setTimeout(() => {clearInterval(tweetInterval)}, 10000)
+        setTimeout(() => {clearInterval(tweetInterval)}, 30000)
+        // setTimeout(() => {clearInterval(timeInterval)}, 30001)
+        
 
         $('#tweetList').on('click', 'li span', function() { 
           clearTimeline();
@@ -48,6 +41,14 @@
             $(list).remove();
           }
         }
+
+        // function updateTimes () {
+        //   var times = $('li #createdDate');
+        //   for (var i=0; i<times.length; i++) {
+            
+        //       //.html(moment(tweet.created_at).fromNow())
+        //   }
+        // }
 
       });
 
