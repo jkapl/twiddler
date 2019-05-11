@@ -43,6 +43,12 @@
           }
         }
 
+        $('#addtweet').keypress(function(event) {
+          if (event.which === 13) {
+            var tweetText = $(this).val();
+          }
+        })
+
         // function updateTimes () {
         //   var times = $('li #createdDate');
         //   for (var i=0; i<times.length; i++) {
@@ -57,7 +63,7 @@
 
     <div class='jumbotron'><h1>Twiddler</h1></div>
 
-    <container>
+    <container class='row'>
       <div class='col-md-6'>
         <ul style='' id='tweetList'>
         </ul>
@@ -65,6 +71,11 @@
       <div class='col-md-3'>
         <ul id='userTimeline'>
         </ul>
+      </div>
+    </container>
+    <container class='row'>
+      <div>
+        <input id='addtweet' type='text' placeholder="Add new tweet">
       </div>
     </container>
 
