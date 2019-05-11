@@ -4,6 +4,7 @@
     <script src="jquery.js"></script>
     <script src="moment.js"></script>
     <script src="data_generator.js"></script>
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
   </head>
   <body>
 
@@ -54,12 +55,18 @@
 
     </script>
 
-    <h1>Twiddler</h1>
+    <div class='jumbotron'><h1>Twiddler</h1></div>
 
-    <ul id='tweetList'>
-    </ul>
-    <ul id='userTimeline'>
-    </ul>
+    <container>
+      <div class='col-md-6'>
+        <ul style='' id='tweetList'>
+        </ul>
+      </div>
+      <div class='col-md-3'>
+        <ul id='userTimeline'>
+        </ul>
+      </div>
+    </container>
 
 
   </body>
