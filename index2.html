@@ -43,10 +43,18 @@
           }
         }
 
-        $('#addtweet').keypress(function(event) {
+        $("input[type='text']").keypress(function(event) {
           if (event.which === 13) {
             var tweetText = $(this).val();
+            console.log(tweetText)
+            var tweet = {};
+            tweet.user = 'guest';
+            tweet.message = tweetText;
+            console.log(tweet)
+            addTweet(tweet);
+            $(this).val("")
           }
+
         })
 
         // function updateTimes () {
@@ -60,24 +68,32 @@
       });
 
     </script>
-
-    <div class='jumbotron'><h1>Twiddler</h1></div>
-
-    <container class='row'>
-      <div class='col-md-6'>
-        <ul style='' id='tweetList'>
-        </ul>
-      </div>
-      <div class='col-md-3'>
-        <ul id='userTimeline'>
-        </ul>
-      </div>
-    </container>
-    <container class='row'>
-      <div>
+    <div class='container'>
+      <div class='jumbotron'><h1>Twiddler</h1></div>
+    </div>
+    
+    <div class='container'>
+      <div class='row'>
         <input id='addtweet' type='text' placeholder="Add new tweet">
       </div>
-    </container>
+    </div>
+
+    <div class='container'>
+      <div class='row'>
+        <div class='col-md-6'>
+          <ul style='' id='tweetList'>
+          </ul>
+        </div>
+        
+        <div class='col-md-6'>
+          <ul id='userTimeline'>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    
+
 
 
   </body>
